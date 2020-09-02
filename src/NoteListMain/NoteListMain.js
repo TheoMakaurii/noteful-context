@@ -8,20 +8,23 @@ import ApiContext from '../ApiContext'
 
 export default class NoteListMain extends React.Component {
   static contextType= ApiContext
+
   render(){
-    //console.log(this.context)
+    const { notes } = this.context
+  console.log("context", this.context.notes)
 
   return (
     <section className='NoteListMain'>
       <ul>
-        {this.context.notes.map(note =>
+        {notes.map(note => (
           <li key={note.id}>
             <Note
+
               id={note.id}
               name={note.name}
               modified={note.modified}
             />
-          </li>
+          </li>)
         )}
       </ul>
       <div className='NoteListMain__button-container'>

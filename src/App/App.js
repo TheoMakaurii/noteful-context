@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Route, Link} from 'react-router-dom';
-import config from './config'
+import config from '../config'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import NoteListNav from '../NoteListNav/NoteListNav';
 import NotePageNav from '../NotePageNav/NotePageNav';
@@ -54,6 +54,15 @@ class App extends Component {
 
  
     }
+
+    handleDelete= note => {
+        this.setState({
+            notes: this.state.notes.filter(el => el.id !== note)
+         
+        })
+        console.log('click')
+    }
+
     renderNavRoutes() {
         const {notes, folders} = this.state;
         return (
@@ -101,7 +110,7 @@ class App extends Component {
                         component= {NoteListMain} 
                     />
                 ))}
-                <Route
+                    <Route
                     path="/note/:noteId"
                     component={NotePageMain} />
             </>
@@ -111,7 +120,8 @@ class App extends Component {
     render() {
         const value = {
             notes: this.state.notes,
-            folders: this.state.folders
+            folders: this.state.folders,
+            // delete: this.handleDelete
         };
         console.log("this is the value", value)
         return (
