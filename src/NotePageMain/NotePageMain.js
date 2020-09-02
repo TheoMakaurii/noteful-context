@@ -4,6 +4,7 @@ import Note from '../Note/Note'
 import {findNote} from '../notes-helpers'
 import './NotePageMain.css'
 
+
 export default function NotePageMain(props) {
   const noteId= props.match.params.noteId
 

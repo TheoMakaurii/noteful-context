@@ -45,8 +45,8 @@ class App extends Component {
               
             })
             .then(([notes, folders])=>{
-                this.setNotes({notes})
-                this.setFolders({folders})
+                this.setNotes(notes)
+                this.setFolders(folders)
             })
             .catch(error => {
                 console.error({error});

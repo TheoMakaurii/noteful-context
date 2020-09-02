@@ -2,10 +2,12 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import CircleButton from '../CircleButton/CircleButton'
 import './NotePageNav.css'
+import ApiContext from '../ApiContext'
 
 export default function NotePageNav(props) {
   return (
     <div className='NotePageNav'>
+      <ApiContext.Consumer>
       <CircleButton
         tag='button'
         role='link'
@@ -21,9 +23,11 @@ export default function NotePageNav(props) {
           {props.folder.name}
         </h3>
       )}
+      </ApiContext.Consumer>
     </div>
   )
 }
+
 
 NotePageNav.defaultProps = {
   history: {
